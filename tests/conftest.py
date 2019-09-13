@@ -26,8 +26,8 @@ def app_config(app_config):
     app_config[
         'FILES_REST_STORAGE_FACTORY'] = 'invenio_s3.s3fs_storage_factory'
     app_config['S3_ENDPOINT_URL'] = None
-    app_config['S3_ACCCESS_KEY_ID'] = 'test'
-    app_config['S3_SECRECT_ACCESS_KEY'] = 'test'
+    app_config['S3_ACCESS_KEY_ID'] = 'test'
+    app_config['S3_SECRET_ACCESS_KEY'] = 'test'
     return app_config
 
 
@@ -42,9 +42,9 @@ def s3_bucket(appctx):
     """S3 bucket fixture."""
     with mock_s3():
         session = boto3.Session(
-            aws_access_key_id=current_app.config.get('S3_ACCCESS_KEY_ID'),
+            aws_access_key_id=current_app.config.get('S3_ACCESS_KEY_ID'),
             aws_secret_access_key=current_app.config.get(
-                'S3_SECRECT_ACCESS_KEY'),
+                'S3_SECRET_ACCESS_KEY'),
         )
         s3 = session.resource('s3')
         bucket = s3.create_bucket(Bucket='test_invenio_s3')
