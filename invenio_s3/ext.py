@@ -27,8 +27,8 @@ class InvenioS3(object):
     def init_s3f3_info(self):
         """Gather all the information needed to start the S3FSFileSystem."""
         info = dict(
-            key=current_app.config.get('S3_ACCCESS_KEY_ID', ''),
-            secret=current_app.config.get('S3_SECRECT_ACCESS_KEY', ''),
+            key=current_app.config.get('S3_ACCESS_KEY_ID', ''),
+            secret=current_app.config.get('S3_SECRET_ACCESS_KEY', ''),
             client_kwargs={},
             config_kwargs={
                 's3': {
