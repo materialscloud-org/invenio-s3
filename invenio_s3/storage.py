@@ -29,7 +29,7 @@ class S3FSFileStorage(PyFSFileStorage):
         if not self.fileurl.startswith('s3://'):
             return super(S3FSFileStorage, self)._get_fs(*args, **kwargs)
 
-        info = current_app.extensions['invenio-s3'].init_s3f3_info
+        info = current_app.extensions['invenio-s3'].init_s3fs_info
         fs = s3fs.S3FileSystem(**info)
 
         return (fs, self.fileurl)
