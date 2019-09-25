@@ -23,6 +23,6 @@ def test_init(base_app):
 
     with base_app.app_context():
         base_app.config['S3_ENDPOINT_URL'] = 'https://example.com:1234'
-        s3_connection_info = base_app.extensions['invenio-s3'].init_s3f3_info
+        s3_connection_info = base_app.extensions['invenio-s3'].init_s3fs_info
         assert s3_connection_info['client_kwargs'][
             'endpoint_url'] == 'https://example.com:1234'
