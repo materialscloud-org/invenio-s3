@@ -34,7 +34,7 @@ class S3FSFileStorage(PyFSFileStorage):
 
         return (fs, self.fileurl)
 
-    def initialize(self, size=0, acl=''):
+    def initialize(self, size=0, acl='private'):
         """Initialize file on storage and truncate to given size."""
         fs, path = self._get_fs()
 
@@ -68,7 +68,7 @@ class S3FSFileStorage(PyFSFileStorage):
             fs.rm(path)
         return True
 
-    def open(self, mode='rb', acl=''):
+    def open(self, mode='rb', acl='private'):
         """Open file.
 
         The caller is responsible for closing the file.
@@ -81,7 +81,7 @@ class S3FSFileStorage(PyFSFileStorage):
                seek=0,
                size=None,
                chunk_size=None,
-               acl='',
+               acl='private',
                progress_callback=None):
         """Update a file in the file system."""
         old_fp = self.open(mode='rb')
