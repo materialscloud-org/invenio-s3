@@ -54,3 +54,11 @@ See `Amazon Boto3 documentation on configuration variables
 <https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#configuration-file>`_
 for more information.
 """
+
+S3_REGION = None
+"""Name of the region where the bucket is located. Can be a string without spaces, or None.
+
+In AWS, S3 bucket names are globally unique but still belong to a specific region. This may vary for other providers.
+Depending on the addressing format, you may need to specify the correct region here.
+Example: 'us-east-1'.
+"""
